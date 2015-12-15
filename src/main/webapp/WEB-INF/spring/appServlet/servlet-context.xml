@@ -8,7 +8,7 @@
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
-
+	<default-servlet-handler/>
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -21,10 +21,17 @@
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
-		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="suffix" value="" />
 	</beans:bean>
+	
+	<!-- 
+	<beans:bean class="org.zkoss.zkmvc.core.CommandViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/zul/" />
+		<beans:property name="suffix" value=".zul" />
+		<beans:property name="order" value="1" />
+	</beans:bean> -->
 
-	<context:component-scan base-package="com.ccolor.web,com.ccolor.mybatis.service" />
+	<context:component-scan base-package="com.ccolor.web,com.ccolor.web.zk,com.ccolor.mybatis.service" />
 	<!-- <beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <beans:property name="basePackage" value="com.ccolor.mybatis.bean" />
     </beans:bean> -->

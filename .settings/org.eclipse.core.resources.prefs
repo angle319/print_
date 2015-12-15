@@ -1,2 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/views/edit/post/model/pic_text.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/edit/post/model/pic_text2.html=UTF-8
+encoding//src/main/webapp/WEB-INF/views/web/component/navbar.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/web/content.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/web/product_detail.jsp=UTF-8
+encoding//src/main/webapp/resources/css/custom_content.css=UTF-8
 encoding/<project>=UTF-8
