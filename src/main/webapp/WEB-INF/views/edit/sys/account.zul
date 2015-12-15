@@ -1,0 +1,16 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="account" title="account edit" border="normal" use="com.ccolor.web.zk.sys_account" onCreate="account.init()">
+		<listbox id="account_list">
+			<listhead>
+				<listheader label="帳號名稱" sort="auto" width="100px"/>
+				<listheader label="描述" sort="auto" />
+				<listheader label="pass" sort="auto"  width="100px" visible="false"/>
+			</listhead>
+		</listbox>
+
+		<button label="新增" onClick="account.add()" />
+		<button label="修改" onClick="account.edit()" />
+	</window>
+	
+</zk>

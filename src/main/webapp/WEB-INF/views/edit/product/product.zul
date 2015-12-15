@@ -1,0 +1,15 @@
+<?page contentType="text/html;charset=UTF-8" cacheable="false"?>
+<zk>
+<window id="product" title="產品列表" border="normal" use="com.ccolor.web.zk.product" onCreate="product.init()">
+	<listbox id="list" mold="paging" pageSize="10">
+        <listhead sizable="true" >
+            <listheader align="center" width="80px"
+                label="簡圖" />
+            <listheader label="產品名稱" sort="auto"/>
+            <listheader label="描述" />
+            <listheader label="key_words" />
+        </listhead>
+    </listbox>
+    <hbox><button label="新增" onClick="product.add()"/><button label="修改" onClick="product.update()"/><button label="刪除" onClick="product.delete()"/></hbox>
+</window>
+</zk>

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccolor.mybatis.mapper.V_product_printMapper" >
+  <resultMap id="BaseResultMap" type="com.ccolor.mybatis.bean.V_product_print" >
+    <id column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="descript" property="descript" jdbcType="VARCHAR" />
+    <result column="main_pic" property="mainPic" jdbcType="VARCHAR" />
+    <result column="sp_id" property="spId" jdbcType="INTEGER" />
+    <result column="specification" property="specification" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="bind" property="bind" jdbcType="VARCHAR" />
+    <result column="content_num" property="contentNum" jdbcType="VARCHAR" />
+    <result column="heaving" property="heaving" jdbcType="VARCHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="content_pic" property="contentPic" jdbcType="VARCHAR" />
+    <result column="temp1" property="temp1" jdbcType="VARCHAR" />
+    <result column="temp2" property="temp2" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    pid, descript, main_pic, sp_id, specification, size, bind, content_num, heaving, 
+    note, content_pic, temp1, temp2, name, keyword
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ccolor.mybatis.bean.V_product_printExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from public.v_product_print
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from public.v_product_print
+    where pid = #{pid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from public.v_product_print
+    where pid = #{pid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ccolor.mybatis.bean.V_product_printExample" >
+    delete from public.v_product_print
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ccolor.mybatis.bean.V_product_print" >
+    insert into public.v_product_print (pid, descript, main_pic, 
+      sp_id, specification, size, 
+      bind, content_num, heaving, 
+      note, content_pic, temp1, 
+      temp2, name, keyword
+      )
+    values (#{pid,jdbcType=INTEGER}, #{descript,jdbcType=VARCHAR}, #{mainPic,jdbcType=VARCHAR}, 
+      #{spId,jdbcType=INTEGER}, #{specification,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, 
+      #{bind,jdbcType=VARCHAR}, #{contentNum,jdbcType=VARCHAR}, #{heaving,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR}, #{contentPic,jdbcType=VARCHAR}, #{temp1,jdbcType=VARCHAR}, 
+      #{temp2,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ccolor.mybatis.bean.V_product_print" >
+    insert into public.v_product_print
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="descript != null" >
+        descript,
+      </if>
+      <if test="mainPic != null" >
+        main_pic,
+      </if>
+      <if test="spId != null" >
+        sp_id,
+      </if>
+      <if test="specification != null" >
+        specification,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="bind != null" >
+        bind,
+      </if>
+      <if test="contentNum != null" >
+        content_num,
+      </if>
+      <if test="heaving != null" >
+        heaving,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="contentPic != null" >
+        content_pic,
+      </if>
+      <if test="temp1 != null" >
+        temp1,
+      </if>
+      <if test="temp2 != null" >
+        temp2,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="keyword != null" >
+        keyword,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="descript != null" >
+        #{descript,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPic != null" >
+        #{mainPic,jdbcType=VARCHAR},
+      </if>
+      <if test="spId != null" >
+        #{spId,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null" >
+        #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="bind != null" >
+        #{bind,jdbcType=VARCHAR},
+      </if>
+      <if test="contentNum != null" >
+        #{contentNum,jdbcType=VARCHAR},
+      </if>
+      <if test="heaving != null" >
+        #{heaving,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="contentPic != null" >
+        #{contentPic,jdbcType=VARCHAR},
+      </if>
+      <if test="temp1 != null" >
+        #{temp1,jdbcType=VARCHAR},
+      </if>
+      <if test="temp2 != null" >
+        #{temp2,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null" >
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ccolor.mybatis.bean.V_product_printExample" resultType="java.lang.Integer" >
+    select count(*) from public.v_product_print
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update public.v_product_print
+    <set >
+      <if test="record.pid != null" >
+        pid = #{record.pid,jdbcType=INTEGER},
+      </if>
+      <if test="record.descript != null" >
+        descript = #{record.descript,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainPic != null" >
+        main_pic = #{record.mainPic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spId != null" >
+        sp_id = #{record.spId,jdbcType=INTEGER},
+      </if>
+      <if test="record.specification != null" >
+        specification = #{record.specification,jdbcType=VARCHAR},
+      </if>
+      <if test="record.size != null" >
+        size = #{record.size,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bind != null" >
+        bind = #{record.bind,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentNum != null" >
+        content_num = #{record.contentNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.heaving != null" >
+        heaving = #{record.heaving,jdbcType=VARCHAR},
+      </if>
+      <if test="record.note != null" >
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentPic != null" >
+        content_pic = #{record.contentPic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.temp1 != null" >
+        temp1 = #{record.temp1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.temp2 != null" >
+        temp2 = #{record.temp2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.keyword != null" >
+        keyword = #{record.keyword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update public.v_product_print
+    set pid = #{record.pid,jdbcType=INTEGER},
+      descript = #{record.descript,jdbcType=VARCHAR},
+      main_pic = #{record.mainPic,jdbcType=VARCHAR},
+      sp_id = #{record.spId,jdbcType=INTEGER},
+      specification = #{record.specification,jdbcType=VARCHAR},
+      size = #{record.size,jdbcType=VARCHAR},
+      bind = #{record.bind,jdbcType=VARCHAR},
+      content_num = #{record.contentNum,jdbcType=VARCHAR},
+      heaving = #{record.heaving,jdbcType=VARCHAR},
+      note = #{record.note,jdbcType=VARCHAR},
+      content_pic = #{record.contentPic,jdbcType=VARCHAR},
+      temp1 = #{record.temp1,jdbcType=VARCHAR},
+      temp2 = #{record.temp2,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      keyword = #{record.keyword,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ccolor.mybatis.bean.V_product_print" >
+    update public.v_product_print
+    <set >
+      <if test="descript != null" >
+        descript = #{descript,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPic != null" >
+        main_pic = #{mainPic,jdbcType=VARCHAR},
+      </if>
+      <if test="spId != null" >
+        sp_id = #{spId,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null" >
+        specification = #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="bind != null" >
+        bind = #{bind,jdbcType=VARCHAR},
+      </if>
+      <if test="contentNum != null" >
+        content_num = #{contentNum,jdbcType=VARCHAR},
+      </if>
+      <if test="heaving != null" >
+        heaving = #{heaving,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="contentPic != null" >
+        content_pic = #{contentPic,jdbcType=VARCHAR},
+      </if>
+      <if test="temp1 != null" >
+        temp1 = #{temp1,jdbcType=VARCHAR},
+      </if>
+      <if test="temp2 != null" >
+        temp2 = #{temp2,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null" >
+        keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pid = #{pid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ccolor.mybatis.bean.V_product_print" >
+    update public.v_product_print
+    set descript = #{descript,jdbcType=VARCHAR},
+      main_pic = #{mainPic,jdbcType=VARCHAR},
+      sp_id = #{spId,jdbcType=INTEGER},
+      specification = #{specification,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      bind = #{bind,jdbcType=VARCHAR},
+      content_num = #{contentNum,jdbcType=VARCHAR},
+      heaving = #{heaving,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      content_pic = #{contentPic,jdbcType=VARCHAR},
+      temp1 = #{temp1,jdbcType=VARCHAR},
+      temp2 = #{temp2,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      keyword = #{keyword,jdbcType=VARCHAR}
+    where pid = #{pid,jdbcType=INTEGER}
+  </update>
+</mapper>

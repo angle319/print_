@@ -1,0 +1,56 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="page_edit" title="page edit" border="normal"
+		visible="false" closable="true"
+		use="com.ccolor.web.zk.sys_pagecontrollerForm" onCreate="page_edit.init()">
+		<grid width="500px">
+			<columns visible="false">
+				<column label="Type" width="120px" />
+				<column label="Content" />
+			</columns>
+			<rows>
+			
+				<row>
+					<label value="名稱" width="30%" />
+					<cell>
+						<textbox id="name" width="150px" tabindex="1" />
+						<label id="msg1" sclass="error" />
+					</cell>
+				</row>
+				<row>
+					<label value="頁面位置(前台developer定義)" width="30%" />
+					<cell>
+						<textbox id="path" width="150px" tabindex="2" />
+						
+					</cell>
+				</row>
+				<row>
+					<label value="屬性(由developer定義)" width="30%" />
+					<cell>
+						<listbox id="kind" mold="select" >
+							<listitem label="文章" value="1" />
+							<listitem label="圖片敘述" value="2" />
+							<listitem label="圖片列表" value="3" />
+						</listbox>
+					</cell>
+				</row>
+				<row>
+					<label value="顯示" width="30%" />
+					<cell>
+						<checkbox id="vsb" ></checkbox>
+					</cell>
+				</row>
+				<row>
+					<label value="描述" width="30%" />
+					<cell>
+						<textbox id="descript" rows="10" width="250px" />
+					</cell>
+				</row>
+			</rows>
+		</grid>
+		<button id="submit" label="送出" />
+	</window>
+	<zscript>
+		
+	</zscript>
+</zk>

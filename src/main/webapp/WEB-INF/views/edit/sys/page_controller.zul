@@ -1,0 +1,14 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="pgctrl" title="pgctrl edit" border="normal"
+		use="com.ccolor.web.zk.sys_pagecontroller" onCreate="pgctrl.init()">
+		<tree id="tree" rows="20" >
+			<treecols>
+				<treecol label="Name" />
+				<treecol label="Description" />
+			</treecols>
+		</tree>
+		
+	</window>
+
+</zk>

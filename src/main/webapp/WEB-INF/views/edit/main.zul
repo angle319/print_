@@ -1,0 +1,92 @@
+<?page id="main_page"  title="網站維護系統" contentType="text/html;charset=UTF-8"?>
+
+<zk>
+
+	<style>
+		.z-menu-text { padding: 5px; font-size: 16px !important;
+		font-family: '微軟正黑體', 'Roboto Condensed', sans-serif;}
+		.z-menuitem-text{padding: 5px; font-size: 16px; !important;
+		font-family: '微軟正黑體', 'Roboto Condensed', sans-serif;}
+		.z-menu{width:160px} .z-menubar{border-left: 1px solid
+		#cfcfcf;border-right: 1px solid #cfcfcf;} @media (max-width:
+		1024px) { .device_panel{ width:100%; } } @media (min-width:
+		1024px) { .device_panel{ width:1024px; } }
+	</style>
+
+	<window id="main_" width="100%" height="100%" position="center,top"
+		contentStyle="text-align: center;overflow:auto;"
+		use="com.ccolor.web.zk.sys_main" onCreate="main_.init()">
+		<zscript >
+           </zscript>
+		<div style="TEXT-ALIGN: -webkit-center">
+			<vbox height="100%" zclass="device_panel">
+				<div>
+					<div width="80%" style="float:left;">
+						<image src="../../../resources/image/logo.jpg"
+							height="70px" style="padding-top: 2%;" />
+					</div>
+					<div width="20%"
+						style="float:left;text-align: right;height:70px;padding-top:45px;">
+						<label style="padding-right: 10px;" value="你好," />
+
+						<label value="${sessionScope.id}" />
+						<button label="登出" onClick="" />
+					</div>
+
+				</div>
+				<separator bar="true" />
+				<hbox>
+					<menubar id="menubar" orient="vertical"
+						autodrop="true">
+						<menu id="sys_maintance" label="系統維護" width="160px">
+							<menupopup>
+								<menuitem label="帳號維護"
+									onClick='main_.sys_page("sys/account.zul")'>
+								</menuitem>
+
+								<menuitem label="頁面維護"
+									onClick='main_.sys_page("sys/page_controller.zul")'>
+								</menuitem>
+							</menupopup>
+						</menu>
+						<!-- <menuitem label="首頁維護">
+
+						</menuitem>
+						<menu label="公司簡介維護">
+							<menupopup>
+								<menuitem label="經營理念"
+									onClick='content.setSrc("company/theory.zul")'>
+								</menuitem>
+								<menuitem label="頁面維護"></menuitem>
+								<menu label="公司簡介維護">
+									<menupopup>
+										<menuitem label="帳號維護"
+											onClick='content.setSrc("sys/account.zul")'>
+										</menuitem>
+
+										<menuitem label="頁面維護"
+											onClick='content.setSrc("sys/page_controller.zul")'>
+										</menuitem>
+									</menupopup>
+								</menu>
+							</menupopup>
+						</menu>
+
+						<menuitem label="產品維護">
+
+						</menuitem>
+						<menuitem label="服務維護">
+
+						</menuitem>
+						<menuitem label="人才招募維護">
+							
+						</menuitem> -->
+					</menubar>
+					<div id="content"><include id="c_inc" src="content.zul" width="840px" /></div>
+					<!-- <include id="content" src="content.zul" width="840px" /> -->
+				</hbox>
+			</vbox>
+		</div>
+	</window>
+
+</zk>

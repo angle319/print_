@@ -1,0 +1,20 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="model_" title="請選擇版型" border="normal" width="600px" closable="true" 
+use="com.ccolor.web.zk.modelForm" onCreate="model_.init()">
+<grid>
+		<rows>
+			<row>	
+				<button image="/resources/html_model/pic_text.png" label="版型A" onClick='model_.setPicText("pic_text")' mold="os"
+                    orient="vertical"/>
+				<button image="/resources/html_model/pic_text_cross.png" label="版型B" onClick='model_.setPicText("pic_text2")' mold="os"
+                    orient="vertical" />
+				<button image="" label="未設定" onClick="" mold="os"
+                    orient="vertical"/>
+				<button image="" label="未設定" onClick="" mold="os"
+                    orient="vertical"/>
+			</row>
+		</rows>
+	</grid>
+</window>
+</zk>

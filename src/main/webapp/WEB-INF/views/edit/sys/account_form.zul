@@ -1,0 +1,56 @@
+<?page  contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="account_edit" title="account edit" border="normal"
+		visible="false" closable="true">
+		<style dynamic="true">.error{ color: red; }</style>
+		<zscript  deferred="true">
+<![CDATA[
+	
+]]>
+	
+	</zscript>
+		<grid width="500px">
+			<columns visible="false">
+				<column label="Type" width="120px" />
+				<column label="Content" />
+			</columns>
+			<rows>
+				<row>
+					<label value="使用者名稱" width="30%" />
+					<cell>
+						<textbox id="name" width="150px" tabindex="1" />
+						<label id="msg1" sclass="error" />
+					</cell>
+
+				</row>
+				<row>
+					密碼
+					<cell>
+						<textbox type="password" id="password"
+							width="150px" tabindex="2" />
+						<label id="msg2" sclass="error" />
+					</cell>
+				</row>
+				<row>
+					再次輸入密碼
+					<cell>
+						<textbox type="password" id="re_password"
+							width="150px" tabindex="3" />
+						<label id="msg3" sclass="error" />
+					</cell>
+
+				</row>
+				<row>
+					描述
+					<cell>
+					<textbox id="descript" rows="10" width="250px"/>
+					
+					</cell>
+
+				</row>
+			</rows>
+		</grid>
+		<button id="submit" label="送出"  />
+	</window>
+
+</zk>

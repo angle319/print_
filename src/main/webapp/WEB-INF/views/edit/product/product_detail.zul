@@ -1,0 +1,307 @@
+<?page  contentType="text/html;charset=UTF-8" cacheable="false"?>
+<zk>
+	<window id="win_p" border="normal" title="編輯產品" xmlns:w='client'
+		closable="true" use="com.ccolor.web.zk.productForm" onCreate="win_p.init()">
+		<style dynamic="true">.error{ color: red; }</style>
+		<style>.z-grid-body { height: auto !important; }</style>
+		<zscript  deferred="true">
+<![CDATA[
+	
+]]>
+	
+	</zscript>
+		<grid id="flow1" width="500px">
+			<columns visible="false">
+				<column label="Type" width="120px" />
+				<column label="Content" />
+			</columns>
+			<rows>
+				<row spans="2" align="center">
+					<label value="第一步-先設定產品的主要屬性" />
+				</row>
+				<row align="center">
+					<vbox>
+						<label value="產品主圖" width="30%" />
+						<button label="瀏覽圖片" upload="true,maxsize=768"
+							onUpload="addItem()" />
+					</vbox>
+					<image id="main_pic" />
+				</row>
+				<row >
+					<vbox>
+						<label value="瀏覽圖片" width="30%" />
+						<button label="瀏覽圖片"
+							upload="true,multiple=true,maxsize=10240"
+							onUpload="addBrowItem()" />
+						<label value="壓住ctrl+滑鼠右鍵 " width="30%" style="color:red;" />
+						
+					</vbox>
+					<div id="pic_conllection"></div>
+				</row>
+				<row>
+					產品名稱
+					<cell>
+						<textbox id="name" width="70%" tabindex="2" />
+						<label id="msg1" sclass="error" />
+					</cell>
+				</row>
+				<row>
+					產品描述
+					<cell>
+						<textbox id="descript" width="70%" tabindex="3" />
+					</cell>
+
+				</row>
+				<row>
+					產品關鍵字
+					<cell>
+						<textbox id="keywords" width="70%" tabindex="3" />
+						<label id="msg2" sclass="error" />
+					</cell>
+				</row>
+				<row>
+
+				</row>
+				<row spans="2" align="center">
+					<div>
+						<!-- w:onClick="jq(this.$f('flow2')).hide().fadeIn(); jq(this.$f('flow1')).show().fadeOut()" -->
+						<button label="下一步"
+							onClick="flow1.setVisible(false);flow2.setVisible(true);"
+							w:onClick="jq(this.$f('flow2')).hide().fadeIn(1000); " />
+					</div>
+				</row>
+			</rows>
+		</grid>
+		<grid id="flow2" width="500px" visible="false">
+			<columns visible="false">
+				<column label="Type" width="120px" />
+				<column label="Content" />
+			</columns>
+			<rows>
+				<row spans="2" align="center">
+					<label value="第二步-設定產品的相關屬性" />
+				</row>
+				<row>
+					規格
+					<cell>
+						<textbox id="spec" width="70%" tabindex="2" />
+						<label id="msg5" sclass="error" />
+					</cell>
+				</row>
+				<row>
+					尺寸
+					<cell>
+						<textbox id="size" width="70%" tabindex="2" />
+						<label id="msg6" sclass="error" />
+					</cell>
+				</row>
+				<row>
+					裝訂
+					<cell>
+						<textbox id="bind" width="70%" tabindex="3" />
+						<label id="msg7" sclass="error" />
+					</cell>
+
+				</row>
+				<row>
+					張數
+					<cell>
+						<textbox id="contnent_num" width="70%"
+							tabindex="3" />
+						<label id="msg8" sclass="error" />
+
+					</cell>
+
+				</row>
+				<row>
+					重量
+					<cell>
+						<textbox id="heaving" width="70%" tabindex="3" />
+						<label id="msg9" sclass="error" />
+
+					</cell>
+				</row>
+				<row spans="2" align="center">
+					<div>
+						<button label="上一步"
+							onClick="flow1.setVisible(true);flow2.setVisible(false);"
+							w:onClick="jq(this.$f('flow1')).hide().fadeIn(1000); " />
+						<button label="下一步"
+							onClick="flow2.setVisible(false);flow3.setVisible(true);"
+							w:onClick="jq(this.$f('flow3')).hide().fadeIn(1000); " />
+					</div>
+				</row>
+			</rows>
+		</grid>
+		<grid id="flow3" width="500px" visible="false">
+			<columns visible="false">
+				<column label="Type" width="120px" />
+				<column label="Content" />
+			</columns>
+			<rows>
+				<row spans="2" align="center">
+					<label value="第三步-設定產品的注意事項" />
+				</row>
+				<row>
+					注意事項
+					<hbox>
+						<vbox id="note">
+							<textbox width="250px" />
+						</vbox>
+						<vbox>
+							<hbox>
+								<button label="+" onClick="addNote()" />
+								<button id="d_note" label="-"
+									onClick="removeNote()" visible="false" />
+							</hbox>
+						</vbox>
+					</hbox>
+
+				</row>
+				<row spans="2" align="center">
+					<div>
+						<button label="上一步"
+							onClick="flow2.setVisible(true);flow3.setVisible(false);"
+							w:onClick="jq(this.$f('flow2')).hide().fadeIn(1000); " />
+						<button label="下一步"
+							onClick="flow3.setVisible(false);flow4.setVisible(true);"
+							w:onClick="jq(this.$f('flow4')).hide().fadeIn(1000); " />
+					</div>
+				</row>
+			</rows>
+		</grid>
+		<grid id="flow4" width="500px" visible="false">
+			<columns visible="false">
+				<column label="num" />
+				<column label="price" />
+			</columns>
+			<rows id="price_list">
+				<row spans="2" align="center">
+					<label value="第四步-設定產品的注意事項" />
+
+				</row>
+				<row spans="2">
+					<div align="center">
+						<label value="價格表單" />
+						<button label="+" onClick="addPrice()" />
+						<button id="d_price" label="-"
+							onClick="removePrice()" visible="false" />
+					</div>
+				</row>
+				<row align="center">
+					<label value="價格(數量1)" />
+					<textbox width="100px" value="0"/>
+				</row>
+				<row spans="2" align="center">
+					<div>
+						<button label="上一步"
+							onClick="flow3.setVisible(true);flow4.setVisible(false);"
+							w:onClick="jq(this.$f('flow3')).hide().fadeIn(1000); " />
+						<button id="submit" label="送出" onClick="win_p.submit()"/>
+					</div>
+				</row>
+			</rows>
+		</grid>
+
+	</window>
+	<zscript><![CDATA[
+	void addPrice() {
+		Rows rows = (Rows) win_p.getFellow("price_list");
+		Row row=new Row();
+		Textbox num =new Textbox();
+		Textbox price=new Textbox();
+		num.setValue("1");
+		price.setValue("0");
+		num.setWidth("100px");
+		price.setWidth("100px");
+		row.appendChild(num);
+		row.appendChild(price);
+		row.setAlign("center");
+		rows.getChildren().add(rows.getChildren().size()-1,row);
+		if(rows.getChildren().size()>4){
+			Button del_btn = (Button) win_p.getFellow("d_price");
+			del_btn.setVisible(true);
+		}
+	}
+	void removePrice() {
+		Rows rows = (Rows) win_p.getFellow("price_list");
+		rows.getChildren().remove(rows.getChildren().size()-2);
+		if(rows.getChildren().size()<=4){
+			Button del_btn = (Button) win_p.getFellow("d_price");
+			del_btn.setVisible(false);
+		}
+	}
+	void addItem() {
+		org.zkoss.util.media.Media media = event.getMedia();
+		byte[] data = null;
+		if (media instanceof org.zkoss.image.Image) {
+			org.zkoss.image.Image im = (org.zkoss.image.Image) media;
+			org.zkoss.zul.Image img = (org.zkoss.zul.Image) win_p.getFellow("main_pic");
+			img.setContent(im);
+			if (im.getWidth() > 200) {
+				img.setWidth("200px");
+			} else {
+				img.setWidth("");
+			}
+			/* data = media.getByteData();
+			win_ed.upload(data,media.getName());*/
+		} else {
+			Messagebox.show("Not an image: " + media, "Error", Messagebox.OK, Messagebox.ERROR);
+			break;
+		}
+	}
+	void addBrowItem() {
+		org.zkoss.util.media.Media[] obj = event.getMedias();
+		byte[] data = null;
+		for (org.zkoss.util.media.Media media : obj) {
+			if (media instanceof org.zkoss.image.Image) {
+				org.zkoss.image.Image im = (org.zkoss.image.Image) media;
+				Div div = (Div) win_p.getFellow("pic_conllection");
+				Image img=new Image();
+				img.setContent(com.ccolor.web.util.ImageUtil.getScaledImage(im.getByteData(), 500));
+				div.appendChild(img);
+				if (im.getWidth() > 200) {
+					img.setWidth("30%");
+					img.setStyle("margin:1%");
+				} else {
+					img.setWidth("");
+				}
+				/* data = media.getByteData();
+				win_ed.upload(data,media.getName());*/
+			} else {
+				Messagebox.show("Not an image: " + media, "Error", Messagebox.OK, Messagebox.ERROR);
+				break;
+			}
+		}
+	}
+	void addNote() {
+		boolean add = true;
+		Vbox note = (Vbox) win_p.getFellow("note");
+		for (Component tb : note.getChildren()) {
+			if ("".equals(((Textbox) tb).getValue())) {
+				Messagebox.show("備註欄其中一欄空白!!");
+				add = false;
+				break;
+			}
+		}
+		if (add) {
+			Textbox tb = new Textbox();
+			tb.setWidth("250px");
+			note.appendChild(tb);
+		}
+		if (note.getChildren().size() > 1) {
+			((Button) win_p.getFellow("d_note")).setVisible(true);
+		}
+	}
+	void removeNote() {
+		boolean add = true;
+		Vbox note = (Vbox) win_p.getFellow("note");
+		if (note.getChildren().size() > 1) {
+			note.removeChild(note.getLastChild());
+		}
+		if (note.getChildren().size() == 1) {
+			((Button) win_p.getFellow("d_note")).setVisible(false);
+		}
+	}
+]]></zscript>
+</zk>

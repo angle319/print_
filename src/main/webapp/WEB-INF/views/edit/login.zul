@@ -1,0 +1,26 @@
+<?page title="login_sys" ?>
+<window title="登入" border="normal" width="220px" position="center,center" mode="overlapped"
+	id="login" use="com.ccolor.web.zk.login">
+
+	<hlayout>
+		<label value="帳號" />
+		<textbox id="name">
+			<attribute name="onOK"><![CDATA[
+                        login.submit();
+                    ]]></attribute>
+		</textbox>
+	</hlayout>
+	<hlayout>
+		<label value="密碼" />
+		<textbox id="pass" type = "password">
+			<attribute name="onOK"><![CDATA[
+                       login.submit();
+                    ]]></attribute>
+		</textbox>
+	</hlayout>
+	<vbox align="end" width="100%">
+		<button id="submit" label="確認" onClick="login.submit()" />
+	</vbox>
+	<zscript>login.doModal();</zscript>
+</window>
+
