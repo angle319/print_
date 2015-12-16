@@ -1,7 +1,7 @@
 /**
  * 
  */
-function checkQuatity() {
+	function checkQuatity() {
 		$("#quatity_c").html('');
 		var phone = $.trim($('#quatity').val());
 		if (phone == "" || !/.[0-9]{1,10}$/.test(phone) ) {
@@ -31,9 +31,8 @@ function checkQuatity() {
 	$('#_modal_order').on('show.bs.modal', function(event) {
 		var button = $(event.relatedTarget)
 		var modal = $(this)
-		modal.find('.modal-title').text('訂購   ' + '${product.name}')
-		modal.find('#product_name').val('${product.name}');
-		alert($('body').attr("style"));
+		modal.find('.modal-title').text('訂購   ' + modal.attr('name'))
+		modal.find('#product_name').html(modal.attr('name'));
 		$('body').removeAttr('style');
 	})
 	$("#mail").change(function() {
@@ -51,7 +50,7 @@ function checkQuatity() {
 		var q=checkQuatity();
 		if(m&&p&&q){
 		$.post("receiveData", {
-			pid : '${product.pid}',
+			pid : $('#_modal_order').attr('pid'),
 			name: $("#order_person").val(),
 			mail: $("#mail").val(),
 			phone: $("#phone").val(),
@@ -63,3 +62,4 @@ function checkQuatity() {
 			$("#_modal_order").modal('hide');}
 		});
 		}
+	});
