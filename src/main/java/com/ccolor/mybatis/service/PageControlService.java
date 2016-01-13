@@ -22,8 +22,7 @@ public class PageControlService {
 	}
 	public List<PageControl> getExceptRoot() {
 		PageControlExample pce=new PageControlExample();
-		pce.createCriteria().andSpidGreaterThan(0);
-		pce.createCriteria().andVisibleEqualTo(true);
+		pce.createCriteria().andSpidGreaterThan(0).andVisibleEqualTo(true);
 		return pcMapper.selectByExample(pce);
 	}
 	public void addPageControll(PageControl record){

@@ -45,6 +45,7 @@ public class ProductController {
 		int spid = 1;
 		PageControl pc = null;
 		try {
+			
 			spid = Integer.parseInt(webRequest.getParameter("pid"));
 		} catch (Exception e) {
 		}
@@ -88,8 +89,6 @@ public class ProductController {
 		String phone=webRequest.getParameter("phone");
 		String quatity=webRequest.getParameter("quatity");
 		String note=webRequest.getParameter("note");
-		
-		
 		return String.valueOf(true);
 	}
 	public String[] loadContentPic(String dir) {

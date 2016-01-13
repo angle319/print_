@@ -10,21 +10,21 @@
 <meta http-equiv="expires" content="0">
 <meta name="Keywords" content="印刷,大量印刷,印刷品質,彩色印刷">
 <meta content="中華彩色印刷五十年來堅持印刷品質,專業印刷大量" name="description">
-<link rel="shortcut icon" href="resources/com.ico">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/com.ico">
 <title>中華彩色印刷有限公司</title>
 <meta name="author" content="angle319">
-<link rel="stylesheet" href="resources/css/bootstrap.css" media="screen">
-<script src="resources/js/jquery-1.10.2.min.js"></script>
-<script src="resources/js/bootstrap.js"></script>
-<script src="resources/js/custom.js"></script>
-<link rel="stylesheet" href="resources/css/custom_content.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" media="screen">
+<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/custom_content.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-      <script src="resources/js/html5shiv.min.js"></script>
-      <script src="resources/js/respond.min.js"></script>
-      <script src="resources/js/carousel.js"></script>
-      <link rel="stylesheet" href="css/ie_custom.css"> 
+      <script src="${pageContext.request.contextPath}/resources/js/html5shiv.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/respond.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resources/js/carousel.js"></script>
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/ie_custom.css"> 
      
     <![endif]-->
 </head>
@@ -318,7 +318,7 @@ $("#submit").click(function() {
 		quatity : $("#quatity").val(),
 		note : $("#note").val()
 	}, function(data, status) {
-		if(data){
+		if(data=='true'){
 		$("#alert").modal('show');
 		$("#_modal_order").modal('hide');}
 	});

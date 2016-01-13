@@ -30,9 +30,9 @@ public class ComponentController {
 	ArrayList pc_list = null;
 	
 	@RequestMapping(value = { "/navbar" }, method = RequestMethod.GET)
-	public String naverbar(Locale locale, Model model) {
+	public String naverbar(WebRequest webRequest,Locale locale, Model model) {
 		setPageData();
-		NavbarCOM control = new NavbarCOM(this.pc_list, 0);
+		NavbarCOM control = new NavbarCOM(this.pc_list, 0,webRequest.getContextPath());
 		model.addAttribute("navbar", control.getNavbarHtml());
 		return "web/component/navbar.jsp";
 	}
@@ -45,7 +45,7 @@ public class ComponentController {
 			spid = Integer.parseInt(webRequest.getParameter("pid"));
 		} catch (Exception e) {
 		}
-		MenuCOM control = new MenuCOM(pc_list, spid);
+		MenuCOM control = new MenuCOM(pc_list, spid,webRequest.getContextPath());
 		model.addAttribute("menu", control.getMenuHtml());
 		return "web/component/menu.jsp";
 	}
@@ -73,7 +73,7 @@ public class ComponentController {
 		return str + ".zul";
 	}
 	private void setPageData() {
-		if (this.pc_list == null)
+		//if (this.pc_list == null)
 			pc_list = (ArrayList) pcs.getExceptRoot();
 	}
 }

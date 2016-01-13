@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
@@ -41,7 +42,7 @@ public class MainController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/home", "/index" }, method = RequestMethod.GET)
 	public String home(WebRequest webRequest, Locale locale, Model model) {
 		int spid = 1;
 		PageControl pc = null;
@@ -58,7 +59,24 @@ public class MainController {
 		} catch (IndexOutOfBoundsException e) {
 			model.addAttribute("html_content", "NO DATA");
 		}
-		return "web/content.jsp";
+		return "web/index.jsp";
+	}
+	@RequestMapping(value = {"/content/{id}" }, method = RequestMethod.GET)
+	public String content(@PathVariable("id") String id,WebRequest webRequest, Locale locale, Model model) {
+		PageControl pc = null;
+		pc = pcs.getByPK(Integer.parseInt(id));
+		try {
+			V_post vtx = new V_post();
+			vtx = vts.getTextBeanBySPID(pc.getSpid());
+			model.addAttribute("html_content", vtx.getText());
+		} catch (IndexOutOfBoundsException e) {
+			model.addAttribute("html_content", "NO DATA");
+		}
+		if("".equals(pc.getPath())||pc.getPath()==null){
+			return "web/content.jsp";
+		}else{
+			return "web/"+pc.getPath()+".jsp";
+		}
 	}
 	
 	private String jsEXE(String js_code) {

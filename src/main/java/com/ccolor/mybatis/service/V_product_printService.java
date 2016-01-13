@@ -35,8 +35,7 @@ public class V_product_printService {
 	}
 	public List<V_product_print> selectByBeen(V_product_print vp) {
 		V_product_printExample vppe = new V_product_printExample();
-		vppe.createCriteria().andNameEqualTo(vp.getName());
-		vppe.createCriteria().andContentPicEqualTo(vp.getContentPic());
+		vppe.createCriteria().andNameEqualTo(vp.getName()).andContentPicEqualTo(vp.getContentPic());
 		return v_product_printMapper.selectByExample(vppe);
 	}
 

@@ -13,11 +13,13 @@ import com.ccolor.mybatis.bean.PageControl;
 public class NavbarCOM {
 	ArrayList list = null;
 	String rootTag = "div";
+	String context = null;
 	int parentId;
 
-	public NavbarCOM(ArrayList<Object> data,int parentId) {
+	public NavbarCOM(ArrayList<Object> data,int parentId,String context) {
 		this.list = data;
 		this.parentId=parentId;
+		this.context=context;
 	}
 	public String getNavbarHtml() {
 		return getNavbarHtml("bs-navbar-collapse");
@@ -75,11 +77,11 @@ public class NavbarCOM {
 	}
 	public void setMenuAtrr(Element e, PageControl pc) {
 		if (pc.getTypeId() == 1&&"".equals(pc.getPath())) {
-			e.addAttribute("href", "home?pid=" + pc.getSpid());
+			e.addAttribute("href", context+"/content/" + pc.getSpid());
 		}else if(pc.getTypeId()==2&&"".equals(pc.getPath())){
-			e.addAttribute("href",  "product?pid=" + pc.getSpid());
+			e.addAttribute("href",  context+"/product/" + pc.getSpid());
 		}else{
-			e.addAttribute("href", pc.getPath() + "?pid=" + pc.getSpid());
+			e.addAttribute("href", context+"/"+pc.getPath() + "/" + pc.getSpid());
 		}
 	}
 	/* nuit test

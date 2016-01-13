@@ -184,8 +184,6 @@
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>ckez</artifactId>
 			<version>4.4</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/ckez.jar</systemPath>
 		</dependency>
 		<!-- <dependency> <groupId>org.zkoss.zkforge</groupId> <artifactId>ckez</artifactId> 
 			<version>3.6.0.0</version> </dependency> -->

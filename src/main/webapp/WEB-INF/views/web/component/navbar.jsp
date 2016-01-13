@@ -1,8 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
 <div class="view">
-	<img alt="Preview" src="resources/image/logo.jpg" style="height: 50px">
+	<a href="${pageContext.request.contextPath}/home"><img alt="Preview" src="${pageContext.request.contextPath}/resources/image/logo.jpg" style="height: 50px"></a>
 	<script language="JavaScript">
 		$(function() {
 			/*$('.dropdown-toggle').click(function() {

@@ -29,8 +29,8 @@
 					<cell>
 						<listbox id="kind" mold="select" >
 							<listitem label="文章" value="1" />
-							<listitem label="圖片敘述" value="2" />
-							<listitem label="圖片列表" value="3" />
+							<listitem label="產品" value="2" />
+							<!-- <listitem label="圖片列表" value="3" /> -->
 						</listbox>
 					</cell>
 				</row>

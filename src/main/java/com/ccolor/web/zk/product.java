@@ -13,6 +13,7 @@ import org.zkoss.zul.Listitem;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
+import com.ccolor.mybatis.bean.PageControl;
 import com.ccolor.mybatis.bean.V_product_print;
 import com.ccolor.mybatis.service.V_product_printService;
 import com.ccolor.web.zk.model.AbstractForm;
@@ -24,6 +25,7 @@ public class product extends AbstractForm {
 
 	public void init() {
 		map.put("parent_win", this);
+		
 		Listbox listbox = (Listbox) getFellow("list");
 		listbox.getItems().clear();
 		listbox.clearSelection();
@@ -32,7 +34,8 @@ public class product extends AbstractForm {
 
 	@Override
 	public void setData() {
-		List<V_product_print> list = vpp.selectAll();
+		PageControl pc=(PageControl) map.get("pc");
+		List<V_product_print> list = vpp.selectBySPID(pc.getSpid());
 		Listbox listbox = (Listbox) getFellow("list");
 		for (V_product_print vppbeen : list) {
 			Listitem listitem = new Listitem();

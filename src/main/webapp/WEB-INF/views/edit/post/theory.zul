@@ -12,7 +12,7 @@
 			td{height:0px;}
 		</style>
 		
-		<tabbox width="900px" sclass="demoTbx">
+		<tabbox width="1024px" sclass="demoTbx">
 			<toolbar>html 編輯器</toolbar>
 			<tabs>
 				<tab label="編輯器" />

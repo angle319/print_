@@ -314,11 +314,24 @@ p.content_message {
 
 .carousel-control.right {
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, #cccccc 100%);
+	top:50%;
+	width: 50px;
+	margin-right;10px;
 }
 .carousel-control.left {
 	background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, #cccccc 100%);
+	top:50%;
+	width: 50px;
+	margin-left;10px;
 }
-
+.carousel-control.left span,
+.carousel-control.icon-prev span,
+.carousel-control.right span,
+.carousel-control.icon-next span {
+  font-size: 20px;
+  margin-top: -10px;
+  color: rgba(0, 0, 0, 0.6);
+}
 .lanrenzhijia {
 	width: auto;
 	height: auto;

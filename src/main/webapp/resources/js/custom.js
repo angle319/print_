@@ -6,17 +6,22 @@
 var viewNum;
 var countLength;
 $(document).ready(function() {
+	var isContext=true;
 	//$("#image_message").hide();
-	var k=location.search.split('pid=')[1];
+	var k=location.pathname.split('/')
+	k=k[k.length-1];
 	if(k=='undefined'){
 		k='';
 	}else{
 		k='?pid='+k;
 	}
-	$("#nav_injection").load("navbar");
-	$("#bottom_injection").load("bottom");
-	
-	$("#menu_injection").load("menu"+k,function(){
+	var temp=""
+	if(isContext){
+		temp="/"+location.pathname.split('/')[1]+"/"
+	}	
+	$("#nav_injection").load(temp+'navbar');
+	$("#bottom_injection").load(temp+'bottom');
+	$("#menu_injection").load(temp+'menu'+k,function(){
 		if($("#menu_injection").children().length<=1){
 			$("#menu_injection").remove();
 			$("#_content").attr('class','col-md-12');
