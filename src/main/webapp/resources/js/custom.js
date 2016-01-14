@@ -34,7 +34,11 @@ $(document).ready(function() {
 	$(".img_frame").each(function() {
 		$(this).fadeIn(Math.floor(Math.random() * (3000 - 300 + 1)) + 300);
 	});
-	
+	$("img").each(function() {
+		console.log($(this));
+		$(this).hide();
+		$(this).fadeIn(Math.floor(Math.random() * (3000 - 300 + 1)) + 300);
+	});
 	/*if($("#menu_injection").children().length<=1){
 		$("#menu_injection").remove();
 		$("#_content").attr('class','col-md-12');

@@ -32,12 +32,19 @@
      
     <![endif]-->
 </head>
+
+
 <body class="container" onresize="set_menubar()">
 	<div id="nav_injection"></div>
 	<div id="menu_injection" class="col-md-2"></div>
-	<div id="_content">${html_content}</div>
+	<div id="_content" class="col-md-10">${html_content}</div>
 	<div id="bottom_injection" class="col-md-12"></div>
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
-
+<!-- <script>
+$(document).ready(function() {
+	console.log($("#menu_injection"));
+	
+})
+</script> -->
 </html>

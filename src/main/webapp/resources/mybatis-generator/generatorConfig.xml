@@ -41,8 +41,8 @@
         <!--  <table schema="public" tableName="sys_account" domainObjectName="User" />
               	enableDeleteByExample="true" enableInsert="true" enableUpdateByExample="true" enableUpdateByPrimaryKey="true" -->
          <!--      <table schema="public" tableName="v_post" domainObjectName="V_post" />	-->
-         <!-- 	<table schema="public" tableName="sys_pagecontrol" domainObjectName="PageControl" /> -->	
-           <table schema="public" tableName="v_product_price" domainObjectName="V_product_price" />
+         <table schema="public" tableName="sys_pagecontrol" domainObjectName="PageControl" /> 
+           <!-- <table schema="public" tableName="v_product_price" domainObjectName="V_product_price" /> -->
              <!--<table schema="public" tableName="v_product_print" domainObjectName="V_product_print" />-->
              </context>
 </generatorConfiguration>

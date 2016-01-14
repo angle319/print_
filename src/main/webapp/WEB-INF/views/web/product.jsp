@@ -35,7 +35,7 @@
 <body class="container" onresize="set_menubar()">
 	<div id="nav_injection"></div>
 	<div id="menu_injection" class="col-md-2"></div>
-	<div id="_content" >
+	<div id="_content" class="col-md-10">
 		<div class="row">
 			<div class="col-md-12">
 				<c:forEach items="${html_content}" var="product">
