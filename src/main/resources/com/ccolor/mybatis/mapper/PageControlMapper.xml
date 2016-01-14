@@ -13,6 +13,8 @@
     <result column="temp2" property="temp2" jdbcType="VARCHAR" />
     <result column="temp3" property="temp3" jdbcType="VARCHAR" />
     <result column="temp4" property="temp4" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="del" property="del" jdbcType="BIT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -73,7 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    spid, parent_id, name, path, descript, type_id, visible, temp1, temp2, temp3, temp4
+    spid, parent_id, name, path, descript, type_id, visible, temp1, temp2, temp3, temp4, 
+    sort, del
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ccolor.mybatis.bean.PageControlExample" >
     select
@@ -109,11 +112,13 @@
     insert into public.sys_pagecontrol (spid, parent_id, name, 
       path, descript, type_id, 
       visible, temp1, temp2, 
-      temp3, temp4)
+      temp3, temp4, sort, 
+      del)
     values (#{spid,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{path,jdbcType=VARCHAR}, #{descript,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
       #{visible,jdbcType=BIT}, #{temp1,jdbcType=VARCHAR}, #{temp2,jdbcType=VARCHAR}, 
-      #{temp3,jdbcType=VARCHAR}, #{temp4,jdbcType=VARCHAR})
+      #{temp3,jdbcType=VARCHAR}, #{temp4,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{del,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.ccolor.mybatis.bean.PageControl" >
     insert into public.sys_pagecontrol
@@ -151,6 +156,12 @@
       <if test="temp4 != null" >
         temp4,
       </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="del != null" >
+        del,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="spid != null" >
@@ -185,6 +196,12 @@
       </if>
       <if test="temp4 != null" >
         #{temp4,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="del != null" >
+        #{del,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -230,6 +247,12 @@
       <if test="record.temp4 != null" >
         temp4 = #{record.temp4,jdbcType=VARCHAR},
       </if>
+      <if test="record.sort != null" >
+        sort = #{record.sort,jdbcType=INTEGER},
+      </if>
+      <if test="record.del != null" >
+        del = #{record.del,jdbcType=BIT},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -247,7 +270,9 @@
       temp1 = #{record.temp1,jdbcType=VARCHAR},
       temp2 = #{record.temp2,jdbcType=VARCHAR},
       temp3 = #{record.temp3,jdbcType=VARCHAR},
-      temp4 = #{record.temp4,jdbcType=VARCHAR}
+      temp4 = #{record.temp4,jdbcType=VARCHAR},
+      sort = #{record.sort,jdbcType=INTEGER},
+      del = #{record.del,jdbcType=BIT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -285,6 +310,12 @@
       <if test="temp4 != null" >
         temp4 = #{temp4,jdbcType=VARCHAR},
       </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="del != null" >
+        del = #{del,jdbcType=BIT},
+      </if>
     </set>
     where spid = #{spid,jdbcType=INTEGER}
   </update>
@@ -299,7 +330,9 @@
       temp1 = #{temp1,jdbcType=VARCHAR},
       temp2 = #{temp2,jdbcType=VARCHAR},
       temp3 = #{temp3,jdbcType=VARCHAR},
-      temp4 = #{temp4,jdbcType=VARCHAR}
+      temp4 = #{temp4,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      del = #{del,jdbcType=BIT}
     where spid = #{spid,jdbcType=INTEGER}
   </update>
 </mapper>

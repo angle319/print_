@@ -23,6 +23,10 @@ public class PageControl {
 
     private String temp4;
 
+    private Integer sort;
+
+    private Boolean del;
+
     public Integer getSpid() {
         return spid;
     }
@@ -109,5 +113,21 @@ public class PageControl {
 
     public void setTemp4(String temp4) {
         this.temp4 = temp4 == null ? null : temp4.trim();
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
+
+    public Boolean getDel() {
+        return del;
+    }
+
+    public void setDel(Boolean del) {
+        this.del = del;
     }
 }

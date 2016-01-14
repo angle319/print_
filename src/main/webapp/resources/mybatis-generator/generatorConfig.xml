@@ -13,7 +13,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="org.postgresql.Driver"
-                        connectionURL="jdbc:postgresql://127.0.0.1:5432/web" userId="postgres"
+                        connectionURL="jdbc:postgresql://127.0.0.1:5432/web2" userId="postgres"
                         password="ccolor"/>
 
         <javaModelGenerator targetPackage="com.ccolor.mybatis.bean"

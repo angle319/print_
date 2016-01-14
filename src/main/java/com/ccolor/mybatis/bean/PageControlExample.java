@@ -833,6 +833,126 @@ public class PageControlExample {
             addCriterion("temp4 not between", value1, value2, "temp4");
             return (Criteria) this;
         }
+
+        public Criteria andSortIsNull() {
+            addCriterion("sort is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortIsNotNull() {
+            addCriterion("sort is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortEqualTo(Integer value) {
+            addCriterion("sort =", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortNotEqualTo(Integer value) {
+            addCriterion("sort <>", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortGreaterThan(Integer value) {
+            addCriterion("sort >", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sort >=", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortLessThan(Integer value) {
+            addCriterion("sort <", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortLessThanOrEqualTo(Integer value) {
+            addCriterion("sort <=", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortIn(List<Integer> values) {
+            addCriterion("sort in", values, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortNotIn(List<Integer> values) {
+            addCriterion("sort not in", values, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortBetween(Integer value1, Integer value2) {
+            addCriterion("sort between", value1, value2, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortNotBetween(Integer value1, Integer value2) {
+            addCriterion("sort not between", value1, value2, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelIsNull() {
+            addCriterion("del is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelIsNotNull() {
+            addCriterion("del is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelEqualTo(Boolean value) {
+            addCriterion("del =", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelNotEqualTo(Boolean value) {
+            addCriterion("del <>", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelGreaterThan(Boolean value) {
+            addCriterion("del >", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("del >=", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelLessThan(Boolean value) {
+            addCriterion("del <", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelLessThanOrEqualTo(Boolean value) {
+            addCriterion("del <=", value, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelIn(List<Boolean> values) {
+            addCriterion("del in", values, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelNotIn(List<Boolean> values) {
+            addCriterion("del not in", values, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelBetween(Boolean value1, Boolean value2) {
+            addCriterion("del between", value1, value2, "del");
+            return (Criteria) this;
+        }
+
+        public Criteria andDelNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("del not between", value1, value2, "del");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
