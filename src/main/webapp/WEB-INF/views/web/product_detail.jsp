@@ -55,7 +55,7 @@
 							<ul style="left: 0px;">
 								<c:forEach items="${pic_list}" var="pic_name">
 									<li><img id="first_img"
-										src="${fn:substring(product.contentPic, 1,fn:length(object)-1)}/${pic_name}"
+										src="${pageContext.request.contextPath}/${fn:substring(product.contentPic, 1,fn:length(object)-1)}/${pic_name}"
 										onmousemove="preview(this);"></li>
 								</c:forEach>
 							</ul>

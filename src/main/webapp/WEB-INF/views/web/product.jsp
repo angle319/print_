@@ -44,7 +44,7 @@
 						<a style="color: white;" href="${pageContext.request.contextPath}/product_detail/${product.spId}/${product.pid}">
 							<div id="p_img" class="img_frame">
 								<img
-									src="${fn:substring(product.mainPic, 1,fn:length(object)-1)}/main.jpg"
+									src="${pageContext.request.contextPath}/${fn:substring(product.mainPic, 1,fn:length(object)-1)}/main.jpg"
 									class="img-rounded" alt="Cinque Terre" width="100%">
 								<div class="img_descript">
 									<p style="color: white;">${product.name}</p>
