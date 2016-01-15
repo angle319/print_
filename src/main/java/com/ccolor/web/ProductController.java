@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,16 +41,10 @@ public class ProductController {
 	@Qualifier("PageControlService")
 	PageControlService pcs;
 	
-	@RequestMapping(value = { "/product" }, method = RequestMethod.GET)
-	public String product(WebRequest webRequest, Locale locale, Model model) {
-		int spid = 1;
+	@RequestMapping(value = { "/product/{id}" }, method = RequestMethod.GET)
+	public String product(@PathVariable("id") String id,WebRequest webRequest, Locale locale, Model model) {
 		PageControl pc = null;
-		try {
-			
-			spid = Integer.parseInt(webRequest.getParameter("pid"));
-		} catch (Exception e) {
-		}
-		pc = pcs.getByPK(spid);
+		pc = pcs.getByPK(Integer.parseInt(id));
 
 		try {
 			List<V_product_print> list = new ArrayList<V_product_print>();
@@ -60,10 +55,10 @@ public class ProductController {
 		}
 		return "web/product.jsp";
 	}
-	@RequestMapping(value = { "/product_detail" }, method = RequestMethod.GET)
-	public String product_detail (WebRequest webRequest, Locale locale, Model model,HttpServletRequest re) {
-		int spid=Integer.parseInt(webRequest.getParameter("pid"));
-		int dtid=Integer.parseInt(webRequest.getParameter("dtid"));
+	@RequestMapping(value = { "/product_detail/{id}/{dtid}" }, method = RequestMethod.GET)
+	public String product_detail (@PathVariable("id") String id,@PathVariable("dtid") String _dtid,WebRequest webRequest, Locale locale, Model model,HttpServletRequest re) {
+		int spid=Integer.parseInt(id);
+		int dtid=Integer.parseInt(_dtid);
 		PageControl pc = pcs.getByPK(spid);
 		V_product_print vp_bean =vpps.selectByPKey(dtid);
 		List<V_product_price> vp_price=vps_price.selectByPid(dtid);

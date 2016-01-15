@@ -32,16 +32,16 @@
      
     <![endif]-->
 </head>
-<body class="container" onresize="set_menubar()">
+<body class="container" onresize="set_menubar()" context="${pageContext.request.contextPath}">
 	<div id="nav_injection"></div>
-	<div id="menu_injection" class="col-md-2"></div>
+	<div id="menu_injection" class="col-md-2" ></div>
 	<div id="_content" class="col-md-10">
 		<div class="row">
 			<div class="col-md-12">
 				<c:forEach items="${html_content}" var="product">
 					<div class="col-md-3"
 						style="padding-top: 25px; padding-bottom: 25px;">
-						<a style="color: white;" href="product_detail?pid=${product.spId}&dtid=${product.pid}">
+						<a style="color: white;" href="${pageContext.request.contextPath}/product_detail/${product.spId}/${product.pid}">
 							<div id="p_img" class="img_frame">
 								<img
 									src="${fn:substring(product.mainPic, 1,fn:length(object)-1)}/main.jpg"

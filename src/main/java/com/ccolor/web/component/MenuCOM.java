@@ -88,7 +88,7 @@ public class MenuCOM {
 		}else if(pc.getTypeId()==2&&"".equals(pc.getPath())){
 			e.addAttribute("href",  context+"/product/" + pc.getSpid());
 		}else{
-			e.addAttribute("href", context+"/"+pc.getPath() + "/" + pc.getSpid());
+			e.addAttribute("href", context+"/content/" + pc.getSpid());
 		}
 	}
 }

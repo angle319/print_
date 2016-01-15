@@ -8,6 +8,6 @@
 <body>
 http 404,sorry.... 
 找不到頁面或是流量不足
-請返回<a href="/">首頁</a>
+請返回<a href="${pageContext.request.contextPath}/home">首頁</a>
 </body>
 </html>

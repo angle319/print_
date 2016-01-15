@@ -75,7 +75,7 @@ public class MainController {
 		if("".equals(pc.getPath())||pc.getPath()==null){
 			return "web/content.jsp";
 		}else{
-			return "web/"+pc.getPath()+".jsp";
+			return "web/customize/"+pc.getPath()+".jsp";
 		}
 	}
 	

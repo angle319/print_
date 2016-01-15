@@ -15,7 +15,9 @@ public class PageControlService {
 	@Autowired
 	PageControlMapper pcMapper;
 	public List<PageControl> getAll() {
-		return pcMapper.selectByExample(null);
+		PageControlExample pce=new PageControlExample();
+		pce.setOrderByClause("sort,spid asc");
+		return pcMapper.selectByExample(pce);
 	}
 	public PageControl getByPK(int spid) {
 		return pcMapper.selectByPrimaryKey(spid);
@@ -23,6 +25,7 @@ public class PageControlService {
 	public List<PageControl> getExceptRoot() {
 		PageControlExample pce=new PageControlExample();
 		pce.createCriteria().andSpidGreaterThan(0).andVisibleEqualTo(true);
+		pce.setOrderByClause("sort,spid asc");
 		return pcMapper.selectByExample(pce);
 	}
 	public void addPageControll(PageControl record){

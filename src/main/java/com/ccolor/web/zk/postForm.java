@@ -17,6 +17,7 @@ import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zkplus.spring.SpringUtil;
+import org.zkoss.zul.Label;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
@@ -50,6 +51,7 @@ public class postForm extends AbstractForm {
 		/**
 		 * db schema pkey must be change
 		 */
+		((Label)this.getFellow("location")).setValue(pc.getName());;
 		V_postExample vpc=new V_postExample();
 		vpc.createCriteria().andSpIdEqualTo(pc.getSpid());
 		List<V_post> lvt = txtSer.getTextBeanByBean(vpc);

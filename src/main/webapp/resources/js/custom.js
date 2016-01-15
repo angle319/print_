@@ -6,8 +6,8 @@
 var viewNum;
 var countLength;
 $(document).ready(function() {
-	var isContext=true;
 	//$("#image_message").hide();
+	var context=$("body").attr("context");
 	var k=location.pathname.split('/')
 	k=k[k.length-1];
 	if(k=='undefined'){
@@ -16,9 +16,11 @@ $(document).ready(function() {
 		k='?pid='+k;
 	}
 	var temp=""
-	if(isContext){
-		temp="/"+location.pathname.split('/')[1]+"/"
-	}	
+	if(context.length>1){
+		temp=context+"/";
+	}else{
+		temp="/";
+	}
 	$("#nav_injection").load(temp+'navbar');
 	$("#bottom_injection").load(temp+'bottom');
 	$("#menu_injection").load(temp+'menu'+k,function(){
@@ -35,7 +37,7 @@ $(document).ready(function() {
 		$(this).fadeIn(Math.floor(Math.random() * (3000 - 300 + 1)) + 300);
 	});
 	$("img").each(function() {
-		console.log($(this));
+		
 		$(this).hide();
 		$(this).fadeIn(Math.floor(Math.random() * (3000 - 300 + 1)) + 300);
 	});

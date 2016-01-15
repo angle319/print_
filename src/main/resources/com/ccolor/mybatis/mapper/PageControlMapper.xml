@@ -97,6 +97,7 @@
     <include refid="Base_Column_List" />
     from public.sys_pagecontrol
     where spid = #{spid,jdbcType=INTEGER}
+    order by sort,spid asc
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from public.sys_pagecontrol

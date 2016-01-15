@@ -8,6 +8,6 @@
 <body>
 http 500,sorry....
 內部資料處理錯誤
-請返回<a href="/">首頁</a> 
+請返回<a href="${pageContext.request.contextPath}/home">首頁</a> 
 </body>
 </html>

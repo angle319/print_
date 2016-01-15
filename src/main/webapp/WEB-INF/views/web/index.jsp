@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,12 +32,27 @@
      
     <![endif]-->
 </head>
-<body class="container" onresize="set_menubar()">
+<body id="_top" class="container" onresize="set_menubar()" context="${pageContext.request.contextPath}">
 	<div id="nav_injection"></div>
-	<div id="menu_injection" class="col-md-2"></div>
+	<div id="menu_injection" class="col-md-2" ></div>
 	<div id="_content" class="col-md-10">${html_content}</div>
 	<div id="bottom_injection" class="col-md-12"></div>
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+<script>
+	$(document).ready(function(e) {
 
+		$("figure").hover(function() {
+			var _opacity = 0.7;
+
+			$(this).find('figcaption').css('opacity', _opacity);
+
+		}, function() {
+			var _opacity = 0;
+
+			$(this).find('figcaption').css('opacity', _opacity);
+
+		});
+	});
+</script>
 </html>

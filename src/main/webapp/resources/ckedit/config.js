@@ -5,7 +5,7 @@
 CKEDITOR.editorConfig = function(config) {
 	//config.pasteFromWordRemoveStyles = true;
     //config.enterMode = CKEDITOR.ENTER_DIV;
-	config.contentsCss = ['../resources/css/bootstrap.css', '../resources/css/custom_content.css' ];
+	config.contentsCss = [ '../resources/css/animate.css', '../resources/css/nexus.css','../resources/css/bootstrap.css', '../resources/css/custom_content.css' ];
     config.resize_enabled = true;
     config.toolbar = 'Complex';
     config.toolbar_Simple = [ [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'About' ] ];

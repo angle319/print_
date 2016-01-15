@@ -28,7 +28,7 @@
      
     <![endif]-->
 </head>
-<body class="container" onresize="set_menubar()" >
+<body class="container" onresize="set_menubar()" context="${pageContext.request.contextPath}">
 	<div id="nav_injection"></div>
 	<div id="menu_injection" class="col-md-2"></div>
 	<div id="_content" class="col-md-10">
