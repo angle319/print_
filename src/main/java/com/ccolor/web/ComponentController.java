@@ -28,9 +28,23 @@ public class ComponentController {
 	@Qualifier("PageControlService")
 	PageControlService pcs;
 	ArrayList pc_list = null;
-	
-	@RequestMapping(value = { "/navbar" }, method = RequestMethod.GET)
-	public String naverbar(WebRequest webRequest,Locale locale, Model model) {
+
+	@RequestMapping(value = { "/navbar/{id}" }, method = RequestMethod.GET)
+	public String naverbar(@PathVariable("id") String id,WebRequest webRequest,Locale locale, Model model) {
+		int selection=0;
+		try{
+			selection=Integer.parseInt(id);
+			for(Object obj:this.pc_list){
+				PageControl pc=(PageControl)obj;
+				if(pc.getSpid().equals(selection)){
+					selection=(pc.getParentId()<1)?pc.getSpid():pc.getParentId();
+					break;
+				}
+			}
+		}catch(Exception e){
+		}
+		
+		model.addAttribute("selection", selection);
 		setPageData();
 		NavbarCOM control = new NavbarCOM(this.pc_list, 0,webRequest.getContextPath());
 		model.addAttribute("navbar", control.getNavbarHtml());
@@ -45,7 +59,7 @@ public class ComponentController {
 			spid = Integer.parseInt(webRequest.getParameter("pid"));
 		} catch (Exception e) {
 		}
-		MenuCOM control = new MenuCOM(pc_list, spid,webRequest.getContextPath());
+		MenuCOM control = new MenuCOM(pc_list, spid, webRequest.getContextPath());
 		model.addAttribute("menu", control.getMenuHtml());
 		return "web/component/menu.jsp";
 	}
@@ -65,15 +79,18 @@ public class ComponentController {
 
 		return zk_prefix(PathUtil.Main_menu);
 	}
-	@RequestMapping(value = {"/edit/component/{id}"}, method = RequestMethod.GET)
+
+	@RequestMapping(value = { "/edit/component/{id}" }, method = RequestMethod.GET)
 	public String getHtmlComponent(@PathVariable("id") String id, Model model) {
-		return "edit/post/model/"+id+".html";
+		return "edit/post/model/" + id + ".html";
 	}
+
 	public String zk_prefix(String str) {
 		return str + ".zul";
 	}
+
 	private void setPageData() {
-		//if (this.pc_list == null)
-			pc_list = (ArrayList) pcs.getExceptRoot();
+		// if (this.pc_list == null)
+		pc_list = (ArrayList) pcs.getExceptRoot();
 	}
 }

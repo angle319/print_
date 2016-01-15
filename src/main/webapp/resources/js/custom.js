@@ -8,8 +8,9 @@ var countLength;
 $(document).ready(function() {
 	//$("#image_message").hide();
 	var context=$("body").attr("context");
-	var k=location.pathname.split('/')
-	k=k[k.length-1];
+	var spl=location.pathname.split('/');
+	var id=spl[spl.length-1];
+	var k=id;
 	if(k=='undefined'){
 		k='';
 	}else{
@@ -21,7 +22,7 @@ $(document).ready(function() {
 	}else{
 		temp="/";
 	}
-	$("#nav_injection").load(temp+'navbar');
+	$("#nav_injection").load(temp+'navbar/'+id);
 	$("#bottom_injection").load(temp+'bottom');
 	$("#menu_injection").load(temp+'menu'+k,function(){
 		if($("#menu_injection").children().length<=1){

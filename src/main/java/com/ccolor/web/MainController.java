@@ -46,10 +46,7 @@ public class MainController {
 	public String home(WebRequest webRequest, Locale locale, Model model) {
 		int spid = 1;
 		PageControl pc = null;
-		try {
-			spid = Integer.parseInt(webRequest.getParameter("pid"));
-		} catch (Exception e) {
-		}
+		
 		pc = pcs.getByPK(spid);
 
 		try {
@@ -63,6 +60,7 @@ public class MainController {
 	}
 	@RequestMapping(value = {"/content/{id}" }, method = RequestMethod.GET)
 	public String content(@PathVariable("id") String id,WebRequest webRequest, Locale locale, Model model) {
+		int selectId=0;
 		PageControl pc = null;
 		pc = pcs.getByPK(Integer.parseInt(id));
 		try {
@@ -72,6 +70,7 @@ public class MainController {
 		} catch (IndexOutOfBoundsException e) {
 			model.addAttribute("html_content", "NO DATA");
 		}
+		
 		if("".equals(pc.getPath())||pc.getPath()==null){
 			return "web/content.jsp";
 		}else{

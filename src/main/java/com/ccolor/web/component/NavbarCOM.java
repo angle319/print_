@@ -50,6 +50,7 @@ public class NavbarCOM {
 			if (pc.getParentId() == parent) {
 				li=new DOMElement("li");
 				ul=new DOMElement("ul");
+				li.addAttribute("id","nav_"+pc.getSpid());
 				Element a =new DOMElement("a");
 				setMenuAtrr(a, pc);
 				a.addText(pc.getName());

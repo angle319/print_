@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="pragma" content="no-cache">
+<style>
+.selection{
+ 	background-color: #50B0E6;
+}
+</style>
 <div class="view">
 	<a href="${pageContext.request.contextPath}/home"><img alt="Preview" src="${pageContext.request.contextPath}/resources/image/logo.jpg" style="height: 50px"></a>
 	<script language="JavaScript">
@@ -58,6 +63,13 @@
 		</nav>
 
 	</div>
+	<script>
+	$(document).ready(function() {
+		console.log($("#nav_${selection}"));
+		$("#nav_${selection}").addClass("dropdown selection");
+	})
+
+	</script>
 </div>
 
 
