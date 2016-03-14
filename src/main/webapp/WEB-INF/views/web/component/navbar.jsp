@@ -65,7 +65,7 @@
 	</div>
 	<script>
 	$(document).ready(function() {
-		console.log($("#nav_${selection}"));
+		//console.log($("#nav_${selection}"));
 		$("#nav_${selection}").addClass("dropdown selection");
 	})
 

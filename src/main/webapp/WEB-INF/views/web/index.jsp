@@ -20,7 +20,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" media="screen">
 <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
-
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/custom_content.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -31,17 +30,30 @@
       <link rel=stylesheet" href=""${pageContext.request.contextPath}/resources/css/ie_custom.css"> 
      
     <![endif]-->
+   
 </head>
+ <!--[if lt IE 9]>
+   <style rel="stylesheet">
+   	  .left {
+   	  display:none;
+   	  }
+   	  .right {
+   	  display:none;
+   	  }
+      img {max-width: none;}
+   </style>
+<![endif]-->
 <body id="_top" class="container" onresize="set_menubar()" context="${pageContext.request.contextPath}">
 	<div id="nav_injection"></div>
 	<div id="menu_injection" class="col-md-2" ></div>
 	<div id="_content" class="col-md-10">${html_content}</div>
 	<div id="bottom_injection" class="col-md-12"></div>
+	<a href="#_top"><vtag style="position: absolute;opacity :0.7;display: none;" class="btn btn-primary btn-lg">top</vtag></a>
 </body>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
 <script>
 	$(document).ready(function(e) {
-
+		
 		$("figure").hover(function() {
 			var _opacity = 0.7;
 
@@ -53,6 +65,8 @@
 			$(this).find('figcaption').css('opacity', _opacity);
 
 		});
+		 $("figure").trigger('mouseleave');
+		 setTag($('vtag'),$(".row" ));
 	});
 </script>
 </html>
